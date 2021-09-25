@@ -3,7 +3,7 @@
 const assert = require('assert');
 // const sandbox = require('sinon');
 
-const VercelServerlessApiTests = require('./lib');
+const VercelServerlessApiTests = require('../lib');
 
 describe('vercel-serverless-api-tests', () => {
 
