@@ -2,7 +2,7 @@
 
 ## Code Quality Status
 ![Build Status](https://github.com/gastonpereyra/vercel-serverless-api-tests/workflows/Build%20Status/badge.svg)
-[![Coverage Status](https://img.shields.io/coveralls/github/gastonpereyra/vercel-serverless-api-tests/master.svg)](https://coveralls.io/r/gastonpereyra/vercel-serverless-api-tests?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/gastonpereyra/vercel-serverless-api-tests/badge.svg?branch=master)](https://coveralls.io/github/gastonpereyra/vercel-serverless-api-tests?branch=master)
 
 ![vercel-serverless-api-tests Banner](https://user-images.githubusercontent.com/39351850/134091893-712c5542-7d7c-4c51-8fba-3dd2ae1a8247.png)
 
