@@ -1,7 +1,7 @@
 ---
 name: Story
 about: Story to organize development
-title: "[PACKAGE_NAME] - Package -"
+title: "[vercel-serverless-api-tests] - Package -"
 labels: enhancement
 assignees: gastonpereyra
 

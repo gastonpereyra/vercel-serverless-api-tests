@@ -1,16 +1,17 @@
 'use strict';
 
 const assert = require('assert');
-const sandbox = require('sinon');
+// const sandbox = require('sinon');
 
-const PACKAGE_NAME = require('PACKAGE_NAME');
+const VercelServerlessApiTests = require('./lib');
 
-describe('PACKAGE_NAME', () => {
+describe('vercel-serverless-api-tests', () => {
 
     context('When Some condition', () => {
         
         it('Should return something', () => {
-
+            const tests = new VercelServerlessApiTests();
+            assert(tests);
         })
     })
 

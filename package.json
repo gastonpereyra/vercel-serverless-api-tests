@@ -1,7 +1,7 @@
 {
-  "name": "PACKAGE_NAME",
+  "name": "vercel-serverless-api-tests",
   "version": "0.1.0",
-  "description": "PACKAGE_DESCRIPTION",
+  "description": "A Helper to make tests with vercel-serverless-api package",
   "main": "lib/index.js",
   "files": [
     "lib/"
@@ -17,9 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gastonpereyra/PACKAGE_NAME.git"
+    "url": "git+https://github.com/gastonpereyra/vercel-serverless-api-tests.git"
   },
-  "keywords": [],
+  "keywords": [
+    "vercel",
+    "serverless",
+    "tests"
+  ],
   "author": {
     "name": "Gastón Pereyra",
     "email": "rgpxen@gmail.com",
@@ -27,15 +31,17 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gastonpereyra/PACKAGE_NAME/issues?labels=bug&template=bug.md&title=[BUG]"
+    "url": "https://github.com/gastonpereyra/vercel-serverless-api-tests/issues?labels=bug&template=bug.md&title=[BUG]"
   },
-  "homepage": "https://github.com/gastonpereyra/PACKAGE_NAME#readme",
+  "homepage": "https://github.com/gastonpereyra/vercel-serverless-api-tests#readme",
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.24.2",
     "mocha": "^9.1.1",
-    "nyc": "^15.1.0",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
     "sinon": "^11.1.2"
   }
 }
