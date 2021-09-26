@@ -1,6 +1,6 @@
 {
   "name": "vercel-serverless-api-tests",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A Helper to make tests with vercel-serverless-api package",
   "main": "lib/index.js",
   "files": [
