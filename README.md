@@ -12,7 +12,7 @@ A Helper to make tests with vercel-serverless-api package
 ## Installation
 
 ```
-npm i vercel-serverless-api-tests --save-dev
+npm i vercel-serverless-tests --save-dev
 ```
 
 ## Sinon
@@ -20,7 +20,7 @@ The package offers Sinon to help you to realize the tests
 
 ```js
 
-const { sinon } = require('vercel-serverless-api-tests');
+const { sinon } = require('vercel-serverless-tests');
 ```
 
 ## Tests
@@ -49,7 +49,7 @@ In order to make easier test the Handler, offers the `testHandler` function, thi
         - `body` _optional_ | any
 
 ```js
-const VercelServerlessApiTests = require('vercel-serverless-api-tests');
+const VercelServerlessApiTests = require('vercel-serverless-tests');
 
 const handler = require('../../api/test/get');
 
@@ -91,7 +91,7 @@ In order to try to make a Standard, an easy way to make an It block.
 		- `after` _optional_ | function |  If want to do something after to trigger the handler
 
 ```js
-const { sinon, ...VercelServerlessApiTests} = require('vercel-serverless-api-tests');
+const { sinon, ...VercelServerlessApiTests} = require('vercel-serverless-tests');
 
 const handler = require('../../api/test/get');
 const Model = require('../../models/test);
@@ -142,7 +142,7 @@ To make multiple It blocks under a context
         - `afterEach` _optional_ | function | Do somenthing after each tests
 
 ```js
-const { sinon, ...VercelServerlessApiTests} = require('vercel-serverless-api-tests');
+const { sinon, ...VercelServerlessApiTests} = require('vercel-serverless-tests');
 
 const handler = require('../../api/test/get');
 const Model = require('../../models/test);
