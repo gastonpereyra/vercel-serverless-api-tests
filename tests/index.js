@@ -124,8 +124,11 @@ describe('Vercel Serverless Api Tests', () => {
 		let ApiTests;
 
 		beforeEach(() => {
-			sandbox.restore();
 			ApiTests = new VercelServerlessApiTests(apiHanlder);
+		});
+
+		afterEach(() => {
+			sandbox.restore();
 		});
 
 		it('Should skip tests and not called the it function', async () => {
@@ -140,26 +143,16 @@ describe('Vercel Serverless Api Tests', () => {
 			sandbox.assert.notCalled(ApiTests.itFunction);
 		});
 
-		it('Should execute test without any before or after options', async () => {
-
-			sandbox.spy(ApiTests, 'itFunction');
+		it('Should execute test without only', async () => {
 
 			ApiTests.itTest({
 				description: 'Should test',
 				request: { url: 'api/test' },
 				response: { status: 200 }
 			});
-
-			sandbox.assert.calledOnceWithExactly(ApiTests.itFunction,
-				{ url: 'api/test' },
-				{ status: 200 },
-				{}
-			);
 		});
 
-		it('Should execute test with before or after options', async () => {
-
-			sandbox.spy(ApiTests, 'itFunction');
+		it('Should execute test', async () => {
 
 			const testFunction = () => { return true; };
 
@@ -170,12 +163,48 @@ describe('Vercel Serverless Api Tests', () => {
 				before: testFunction,
 				after: testFunction
 			});
+		});
+	});
 
-			sandbox.assert.calledOnceWithExactly(ApiTests.itFunction,
-				{},
-				{},
-				{ itBefore: testFunction, itAfter: testFunction }
-			);
+	describe('It function', () => {
+
+		const apiHanlder = (...args) => handler(API, ...args);
+
+		let ApiTests;
+
+		beforeEach(() => {
+			ApiTests = new VercelServerlessApiTests(apiHanlder);
+		});
+
+		afterEach(() => {
+			sandbox.restore();
+		});
+
+		it('Should execute test without any before or after options', async () => {
+
+			sandbox.stub(ApiTests, 'testHandler');
+
+			await ApiTests.itFunction({ url: 'api/test' }, { status: 200 });
+
+			sandbox.assert.calledOnceWithExactly(ApiTests.testHandler, { url: 'api/test' }, { status: 200 });
+		});
+
+		it('Should execute test with before or after options', async () => {
+
+			const options = {
+				itBefore: () => true,
+				itAfter: () => true
+			};
+
+			sandbox.stub(ApiTests, 'testHandler');
+			sandbox.spy(options, 'itBefore');
+			sandbox.spy(options, 'itAfter');
+
+			await ApiTests.itFunction({ url: 'api/test/1' }, { status: 201 }, options);
+
+			sandbox.assert.calledOnceWithExactly(ApiTests.testHandler, { url: 'api/test/1' }, { status: 201 });
+			sandbox.assert.calledOnce(options.itBefore);
+			sandbox.assert.calledOnce(options.itAfter);
 		});
 	});
 
@@ -246,7 +275,7 @@ describe('Vercel Serverless Api Tests', () => {
 				beforeEach: () => {},
 				afterEach: () => {}
 			};
-			sandbox.stub(ApiTests, 'itTest');
+			sandbox.spy(ApiTests, 'itTest');
 
 			ApiTests.contextTest('When must execute test with beforeEach and afterEach', [
 				sampleTest,
